@@ -90,13 +90,15 @@
 
         {block:Posts}
           {block:IndexPage}
+
           {block:Post4} 
             <div class="row">
           {/block:Post4}
-              <a href="{Permalink}">
+
+            {block:Photo}
                 <article class="col-md-3">
                   <div class="panel panel-default" style="height: 431px;">
-                    {block:Photo}
+                    
                       {block:IndexPage}
                         <a href="{Permalink}">
                       {/block:IndexPage}
@@ -167,14 +169,15 @@
                         {/block:Caption}
                       {/block:PermalinkPage}
 
-                    {/block:Photo}
+                    
 
                     {block:Photoset}
                       {Photoset-500}
                     {/block:Photoset}
                   </div>
                 </article>
-              </a>
+            {/block:Photo}
+
           {block:Post4} 
             </div>
           {/block:Post4} 
