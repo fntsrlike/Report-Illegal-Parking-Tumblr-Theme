@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{Title}</title>
+
+
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <meta name="color:Text" content="#000000"/>
+    <meta name="color:Links" content="#8D8D8D"/>
+    <meta name="color:Accent" content="#E9E9E9"/>
+    <meta name="color:Background" content="#FFFFFF"/>
+    <meta name="color:Scrollbars" content="#999999"/>
+    <meta name="image:Background" content="" />
+    <meta name="image:Sidebar" content="" />
+    <meta name="font:Body" content="Helvetica Neue"/>
+    <meta name="if:Infinite Scroll" content="1"/>
+    <meta name="if:Repeat background" content="1"/>
+    <meta name="text:Number of columns" content="6" />
+
+    
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate"  href="{RSS}" type="application/rss+xml" >
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+    <style type="text/css">
+    {CustomCSS}
+    </style>
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://static.tumblr.com/53unaru/y8wlgzkbt/jquery.ui.totop.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="http://static.tumblr.com/jw8fmba/JuPmhkses/theme.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery(".postnotes").hide();
+            jQuery(".viewnotes").click(function() {
+                jQuery(this).next(".postnotes").slideToggle(700);
+            });
+        });
+    </script>
+
+  </head>
+
+  <body data-theme-network="fntsrlike" data-theme-id="">
+
+    <div id="navigation">
+      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">{Title}</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/submit">舉報違停</a></li>
+            <li><a href="/archive">封存清單</a></li>
+            <li><a href="/random">隨機案例</a><li>          
+            {block:HasPages}
+              {block:Pages}
+                <li><a href="{URL}">{Label}</a></li>
+              {/block:Pages}
+            {/block:HasPages}
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+    </div>
+    <div class="container">
+      <div id="header" class="row alert alert-info">
+            
+        {block:Description}
+        <p id="description" class="lead">
+          {Description}
+        </p>
+        {/block:Description}
+      </div>
+
+
+
+      <div id="content" class="row">
+
+        {block:Posts}
+          {block:IndexPage}
+          {block:Post4} 
+            <div class="row">
+          {/block:Post4}
+              <a href="{Permalink}">
+                <article class="col-md-3">
+                  <div class="panel panel-default" style="height: 431px;">
+                    {block:Photo}
+                      {block:IndexPage}
+                        <a href="{Permalink}">
+                      {/block:IndexPage}
+                        <div class="panel-heading">
+                          {block:PermalinkPage}
+                            {LinkOpenTag}
+                          {/block:PermalinkPage}
+                          <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" alt="{PhotoAlt}" style="max-width: 231px;max-height: 170px;"/>
+                      {block:IndexPage}
+                        </div>
+                        </a>
+                      {/block:IndexPage}
+                      <div class="panel-body">
+                        <p>
+                          {Caption}
+                        </p>
+                                      
+                        {block:Date}
+                          <div class="meta">
+                            <ul class="list-unstyled">
+                              <li>
+                                {block:HasTags}
+                                <ul class="list-inline">
+                                  {block:Tags}
+                                    <li><a href="{TagURL}"><small class="text-muted">#{Tag}</small></a></li>
+                                  {/block:Tags}
+                                </ul>
+                                {/block:HasTags}
+                              </li>
+
+                              <li class="date{block:RebloggedFrom}-reblogged{/block:RebloggedFrom}">
+                                <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
+                                  <span class="glyphicon glyphicon-time"></span>
+                                  <span class="text-muted"> {TimeAgo}</span>
+                                </a>
+                                {block:RebloggedFrom} <em>&gt;</em> <a class="reblogged-from" href="{ReblogRootURL}" title="{ReblogRootTitle}">{ReblogRootName}</a>{/block:RebloggedFrom}
+                              </li>                              
+<!--
+                              {block:IfShowGroupBlogInfo}<li class="post-author"><img alt="{PostAuthorName} Avatar" src="{PostAuthorPortraitURL-16}"> Posted by <a href="{PostAuthorURL}">{PostAuthorName}</a></li>{/block:IfShowGroupBlogInfo}
+
+
+
+                              {block:NoteCount}<li class="notes"><a href="{Permalink}#notes"><span class="icon"></span>{NoteCount}</a></li>{/block:NoteCount}
+
+                              {block:IfDisqusShortname}
+                                <li class="comments hidden">
+                                  <a id="dsq-{PostID}" href="{Permalink}#disqus_thread">
+                                    <span class="icon"></span>Comments
+                                  </a>
+                                </li>
+                              {/block:IfDisqusShortname}
+
+                              <li class="permalink"><a href="{Permalink}"><span class="icon"></span>{lang:Permalink}</a></li>
+-->
+                            </ul><!--/.meta-list -->
+
+                          </div><!-- /.meta -->
+                        {/block:Date}
+                      </div>                      
+
+                      {block:PermalinkPage}
+                        {LinkCloseTag}
+                      {/block:PermalinkPage}
+                      
+                      {block:PermalinkPage}
+                        {block:Caption}
+                          {Caption}
+                        {/block:Caption}
+                      {/block:PermalinkPage}
+
+                    {/block:Photo}
+
+                    {block:Photoset}
+                      {Photoset-500}
+                    {/block:Photoset}
+                  </div>
+                </article>
+              </a>
+          {block:Post4} 
+            </div>
+          {/block:Post4} 
+          {/block:IndexPage}         
+        {/block:Posts}
+
+        
+        {block:PermalinkPage}
+        <!-- 文章頁面 >>> -->
+          {block:Date}
+            Posted {TimeAgo} with {NoteCountWithLabel}{/block:Date}{block:HasTags}<br>
+
+            Tags:&nbsp;{block:Tags}<a href="{TagURL}"><span style="border-bottom:1px solid {color:Links}; color:{color:Text}; line-height:14px;">{Tag}</span></a>&nbsp;&nbsp;{/block:Tags}
+          {/block:HasTags}
+          {block:PostNotes}<div class="viewnotes">View Notes</div>{/block:PostNotes}
+          <div class="postnotes">
+          {block:PostNotes}{PostNotes}{/block:PostNotes}</div>
+        <!-- <<<文章頁面 --> 
+        {/block:PermalinkPage}
+           
+      </div>
+
+
+      <div id="footer" class="row">
+
+        {block:Pagination}
+            <div id="pagination">
+              {block:PreviousPage}
+                <a href="{PreviousPage}">&laquo; {lang:Previous}</a>
+              {/block:PreviousPage}
+
+              {block:JumpPagination length="5"}
+                {block:CurrentPage}
+                  <span class="current_page">{PageNumber}</span>
+                {/block:CurrentPage}
+
+                {block:JumpPage}
+                  <a class="jump_page" href="{URL}">{PageNumber}</a>
+                {/block:JumpPage}
+              {/block:JumpPagination}
+
+              {block:NextPage}
+                <a href="{NextPage}">{lang:Next} &raquo;</a>
+              {/block:NextPage}
+            </div>
+        {/block:Pagination}
+
+        <p class="text-center">
+          Theme by <a href="http://about.me/fntsrlike">fntsrlike</a> 
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
