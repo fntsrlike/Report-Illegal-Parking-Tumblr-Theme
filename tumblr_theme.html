@@ -98,84 +98,53 @@
             {block:Photo}
                 <article class="col-md-3">
                   <div class="panel panel-default" style="height: 431px;">
-                    
-                      {block:IndexPage}
-                        <a href="{Permalink}">
-                      {/block:IndexPage}
-                        <div class="panel-heading">
-                          {block:PermalinkPage}
-                            {LinkOpenTag}
-                          {/block:PermalinkPage}
-                          <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" alt="{PhotoAlt}" style="max-width: 231px;max-height: 170px;"/>
-                      {block:IndexPage}
-                        </div>
-                        </a>
-                      {/block:IndexPage}
-                      <div class="panel-body">
-                        <p>
-                          {Caption}
-                        </p>
-                                      
-                        {block:Date}
-                          <div class="meta">
-                            <ul class="list-unstyled">
-                              <li>
-                                {block:HasTags}
-                                <ul class="list-inline">
-                                  {block:Tags}
-                                    <li><a href="{TagURL}"><small class="text-muted">#{Tag}</small></a></li>
-                                  {/block:Tags}
-                                </ul>
-                                {/block:HasTags}
-                              </li>
+                
+                    <a href="{Permalink}">
+                      <div class="panel-heading">
+                        {block:PermalinkPage}
+                          {LinkOpenTag}
+                        {/block:PermalinkPage}
+                        <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" alt="{PhotoAlt}" style="max-width: 231px;max-height: 170px;"/>
+                      </div>
+                    </a>
 
-                              <li class="date{block:RebloggedFrom}-reblogged{/block:RebloggedFrom}">
-                                <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
-                                  <span class="glyphicon glyphicon-time"></span>
-                                  <span class="text-muted"> {TimeAgo}</span>
-                                </a>
-                                {block:RebloggedFrom} <em>&gt;</em> <a class="reblogged-from" href="{ReblogRootURL}" title="{ReblogRootTitle}">{ReblogRootName}</a>{/block:RebloggedFrom}
-                              </li>                              
-<!--
-                              {block:IfShowGroupBlogInfo}<li class="post-author"><img alt="{PostAuthorName} Avatar" src="{PostAuthorPortraitURL-16}"> Posted by <a href="{PostAuthorURL}">{PostAuthorName}</a></li>{/block:IfShowGroupBlogInfo}
+                    <div class="panel-body">
+                      <p>
+                        {Caption}
+                      </p>
+                                    
+                      {block:Date}
+                        <div class="meta">
+                          <ul class="list-unstyled">
 
+                            <!-- Tag -->
+                            <li>
+                              {block:HasTags}
+                              <ul class="list-inline">
+                                {block:Tags}
+                                  <li><a href="{TagURL}"><small class="text-muted">#{Tag}</small></a></li>
+                                {/block:Tags}
+                              </ul>
+                              {/block:HasTags}
+                            </li>
 
+                            <!-- Time-->
+                            <li class="date{block:RebloggedFrom}-reblogged{/block:RebloggedFrom}">
+                              <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <span class="text-muted"> {TimeAgo}</span>
+                              </a>
+                            </li>                              
 
-                              {block:NoteCount}<li class="notes"><a href="{Permalink}#notes"><span class="icon"></span>{NoteCount}</a></li>{/block:NoteCount}
+                          </ul><!--/.meta-list -->
 
-                              {block:IfDisqusShortname}
-                                <li class="comments hidden">
-                                  <a id="dsq-{PostID}" href="{Permalink}#disqus_thread">
-                                    <span class="icon"></span>Comments
-                                  </a>
-                                </li>
-                              {/block:IfDisqusShortname}
+                        </div><!-- /.meta -->
+                      {/block:Date}
+                    </div>                      
 
-                              <li class="permalink"><a href="{Permalink}"><span class="icon"></span>{lang:Permalink}</a></li>
--->
-                            </ul><!--/.meta-list -->
-
-                          </div><!-- /.meta -->
-                        {/block:Date}
-                      </div>                      
-
-                      {block:PermalinkPage}
-                        {LinkCloseTag}
-                      {/block:PermalinkPage}
-                      
-                      {block:PermalinkPage}
-                        {block:Caption}
-                          {Caption}
-                        {/block:Caption}
-                      {/block:PermalinkPage}
-
-                    
-
-                    {block:Photoset}
-                      {Photoset-500}
-                    {/block:Photoset}
-                  </div>
-                </article>
+                  
+                </div>
+              </article>
             {/block:Photo}
 
           {block:Post4} 
