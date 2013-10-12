@@ -74,7 +74,9 @@
         </div><!-- /.navbar-collapse -->
       </nav>
     </div>
+
     <div class="container">
+
       <div id="header" class="row alert alert-info">
             
         {block:Description}
@@ -84,73 +86,68 @@
         {/block:Description}
       </div>
 
-
-
       <div id="content" class="row">
 
         {block:Posts}
+
           {block:IndexPage}
 
-          {block:Post4} 
-            <div class="row">
-          {/block:Post4}
+          {block:Post4} <div class="row"> {/block:Post4}
 
             {block:Photo}
-                <article class="col-md-3">
-                  <div class="panel panel-default" style="height: 431px;">
-                
-                    <a href="{Permalink}">
-                      <div class="panel-heading">
-                        {block:PermalinkPage}
-                          {LinkOpenTag}
-                        {/block:PermalinkPage}
-                        <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" alt="{PhotoAlt}" style="max-width: 231px;max-height: 170px;"/>
-                      </div>
-                    </a>
+            <article class="col-md-3">
+              <div class="panel panel-default" style="height: 431px;">
 
-                    <div class="panel-body">
-                      <p>
-                        {Caption}
-                      </p>
-                                    
-                      {block:Date}
-                        <div class="meta">
-                          <ul class="list-unstyled">
+                <a href="{Permalink}">
+                  <div class="panel-heading text-center" style="height: 170px;">
+                    {block:PermalinkPage}
+                      {LinkOpenTag}
+                    {/block:PermalinkPage}
+                    <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" alt="{PhotoAlt}" style="max-width: 231px;max-height: 170px;"/>
+                  </div>
+                </a>
 
-                            <!-- Tag -->
-                            <li>
-                              {block:HasTags}
-                              <ul class="list-inline">
-                                {block:Tags}
-                                  <li><a href="{TagURL}"><small class="text-muted">#{Tag}</small></a></li>
-                                {/block:Tags}
-                              </ul>
-                              {/block:HasTags}
-                            </li>
+                <div class="panel-body" style="height: 230px;">
 
-                            <!-- Time-->
-                            <li class="date{block:RebloggedFrom}-reblogged{/block:RebloggedFrom}">
-                              <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
-                                <span class="glyphicon glyphicon-time"></span>
-                                <span class="text-muted"> {TimeAgo}</span>
-                              </a>
-                            </li>                              
+                  <!-- ÃèÊö -->
+                  <section style="height: 160px;">
+                    <p>
+                      {Caption}
+                    </p>
+                  </section>
 
-                          </ul><!--/.meta-list -->
+                  {block:Date}
 
-                        </div><!-- /.meta -->
-                      {/block:Date}
-                    </div>                      
+                    <!-- Tag -->
+                    <section style="height: 45px;">
+                      {block:HasTags}
+                      <ul class="list-inline">
+                        {block:Tags}
+                          <li><a href="{TagURL}"><small class="text-muted">#{Tag}</small></a></li>
+                        {/block:Tags}
+                      </ul>
+                      {/block:HasTags}
+                    </section>
+                    
+                    <!-- Time-->
+                    <section style="height: 20px;">
+                      <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
+                        <span class="glyphicon glyphicon-time"></span>
+                        <span class="text-muted"> {TimeAgo}</span>
+                      </a>
+                    </section>
 
-                  
-                </div>
-              </article>
+                  {/block:Date}
+                </div>    
+
+              </div>
+            </article>
             {/block:Photo}
 
-          {block:Post4} 
-            </div>
-          {/block:Post4} 
-          {/block:IndexPage}         
+          {block:Post4} </div> {/block:Post4} 
+
+          {/block:IndexPage}
+
         {/block:Posts}
 
         
@@ -168,7 +165,6 @@
         {/block:PermalinkPage}
            
       </div>
-
 
       <div id="footer" class="row">
 
