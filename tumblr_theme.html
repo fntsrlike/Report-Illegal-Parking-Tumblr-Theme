@@ -62,9 +62,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/submit">舉報違停</a></li>
-            <li><a href="/archive">封存清單</a></li>
-            <li><a href="/random">隨機案例</a><li>          
+            <li><a href="/submit">鑸夊牨閬曞仠</a></li>
+            <li><a href="/archive">灏佸瓨娓呭柈</a></li>
+            <li><a href="/random">闅ㄦ妗堜緥</a><li>          
             {block:HasPages}
               {block:Pages}
                 <li><a href="{URL}">{Label}</a></li>
@@ -97,7 +97,8 @@
             {block:Photo}
             <article class="col-md-3">
               <div class="panel panel-default" style="height: 431px;">
-
+                
+                
                 <a href="{Permalink}">
                   <div class="panel-heading text-center" style="height: 170px;">
                     {block:PermalinkPage}
@@ -109,7 +110,7 @@
 
                 <div class="panel-body" style="height: 230px;">
 
-                  <!-- 描述 -->
+                  <!-- 鎻忚堪 -->
                   <section style="height: 160px;">
                     <p>
                       {Caption}
@@ -130,16 +131,15 @@
                     </section>
                     
                     <!-- Time-->
-                    <section style="height: 20px;">
-                      <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
-                        <span class="glyphicon glyphicon-time"></span>
-                        <span class="text-muted"> {TimeAgo}</span>
-                      </a>
+                    <section class="text-right" style="height: 20px;">
+                      <span class="text-muted">
+                        {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24Hour}:{Minutes}
+                      <span>                      
                     </section>
 
                   {/block:Date}
                 </div>    
-
+              
               </div>
             </article>
             {/block:Photo}
@@ -152,7 +152,7 @@
 
         
         {block:PermalinkPage}
-        <!-- 文章頁面 >>> -->
+        <!-- 鏂囩珷闋侀潰 >>> -->
           {block:Date}
             Posted {TimeAgo} with {NoteCountWithLabel}{/block:Date}{block:HasTags}<br>
 
@@ -161,7 +161,7 @@
           {block:PostNotes}<div class="viewnotes">View Notes</div>{/block:PostNotes}
           <div class="postnotes">
           {block:PostNotes}{PostNotes}{/block:PostNotes}</div>
-        <!-- <<<文章頁面 --> 
+        <!-- <<<鏂囩珷闋侀潰 --> 
         {/block:PermalinkPage}
            
       </div>
