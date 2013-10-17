@@ -61,15 +61,15 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="/submit">舉報違停</a></li>
-            <li><a href="/archive">封存清單</a></li>
-            <li><a href="/random">隨機案例</a><li>          
+          <ul class="nav navbar-nav">      
             {block:HasPages}
               {block:Pages}
                 <li><a href="{URL}">{Label}</a></li>
               {/block:Pages}
             {/block:HasPages}
+            <li><a href="/submit">舉報違停</a></li>
+            <li><a href="/random">隨機案例</a><li>
+            <li><a href="/archive">封存清單</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
@@ -162,8 +162,20 @@
                   {Body}
               </div><!-- .rte -->
             {/block:Text}
+          <!-- <<< 文章頁面 -->
 
+          <!-- 文章頁面 >>> -->
+            {block:Photo}
+              <header>
+                  <a href="{Permalink}"><img src="{PhotoURL-500}" /></a>
+              </header>
 
+              <div class="rte clearfix">
+                  {block:Caption} {Caption} {/block:Caption}
+
+              </div><!-- .rte -->
+            {/block:Photo}
+          <!-- <<< 文章頁面 -->
 
             {block:Date}
               Posted {TimeAgo} with {NoteCountWithLabel}{/block:Date}{block:HasTags}<br>
