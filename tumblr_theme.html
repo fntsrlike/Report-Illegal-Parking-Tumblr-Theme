@@ -150,42 +150,71 @@
 
             
           {block:PermalinkPage}
-          <!-- 文章頁面 >>> -->
+            <div class="container">
+          
             {block:Text}
+            <!-- 文章頁面 >>> -->
               {block:Title}
               <header>
                   <h1><a href="{Permalink}">{Title}</a></h1>
               </header>
               {/block:Title}
 
-              <div class="rte clearfix">
+              <div>
                   {Body}
               </div><!-- .rte -->
+            <!-- <<< 文章頁面 -->
             {/block:Text}
-          <!-- <<< 文章頁面 -->
+          
 
-          <!-- 文章頁面 >>> -->
+          
             {block:Photo}
-              <header>
-                  <a href="{Permalink}"><img src="{PhotoURL-500}" /></a>
-              </header>
+            <!-- 照片頁面 >>> -->
+              <div class="row">
+                <div class="col-md-6">
+                  <header>
+                      <a href="{Permalink}"><img src="{PhotoURL-500}" /></a>
+                  </header>
+                </div>
+                <div class="col-md-6">
+                      {block:Caption}
+                        {Caption}
+                      {/block:Caption}
+                      
+                      {block:Date}
+                        Posted {TimeAgo} with {NoteCountWithLabel}<br/>
+                      {/block:Date}
+                      
+                      {block:HasTags}
+                        Tags:
+                        {block:Tags}
+                          <a href="{TagURL}">
+                            <span class="text-muted">
+                              {Tag}
+                            </span>
+                          </a>
+                        {/block:Tags}
+                      {/block:HasTags}
+                      
+                      {block:PostNotes}
+                        <div>
+                          View Notes
+                        </div>
+                      {/block:PostNotes}
+                      
+                      <div>
+                        {block:PostNotes}{PostNotes}{/block:PostNotes}
+                      </div>        
+                </div>
 
-              <div class="rte clearfix">
-                  {block:Caption} {Caption} {/block:Caption}
-
-              </div><!-- .rte -->
+                </div>
+              </div>
+            
+            <!-- 照片頁面 >>> -->
             {/block:Photo}
-          <!-- <<< 文章頁面 -->
+          
 
-            {block:Date}
-              Posted {TimeAgo} with {NoteCountWithLabel}{/block:Date}{block:HasTags}<br>
-
-              Tags:&nbsp;{block:Tags}<a href="{TagURL}"><span style="border-bottom:1px solid {color:Links}; color:{color:Text}; line-height:14px;">{Tag}</span></a>&nbsp;&nbsp;{/block:Tags}
-            {/block:HasTags}
-            {block:PostNotes}<div class="viewnotes">View Notes</div>{/block:PostNotes}
-            <div class="postnotes">
-            {block:PostNotes}{PostNotes}{/block:PostNotes}</div>
-          <!-- <<<文章頁面 --> 
+            
           {/block:PermalinkPage}
         {/block:Posts}
 
