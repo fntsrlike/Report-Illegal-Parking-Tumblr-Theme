@@ -176,36 +176,36 @@
                       <a href="{Permalink}"><img src="{PhotoURL-500}" /></a>
                   </header>
                 </div>
-                <div class="col-md-6">
-                      {block:Caption}
-                        {Caption}
-                      {/block:Caption}
-                      
-                      {block:Date}
-                        Posted {TimeAgo} with {NoteCountWithLabel}<br/>
-                      {/block:Date}
-                      
-                      {block:HasTags}
-                        Tags:
-                        {block:Tags}
-                          <a href="{TagURL}">
-                            <span class="text-muted">
-                              {Tag}
-                            </span>
-                          </a>
-                        {/block:Tags}
-                      {/block:HasTags}
-                      
-                      {block:PostNotes}
-                        <div>
-                          View Notes
-                        </div>
-                      {/block:PostNotes}
-                      
+                 <div class="col-md-6">
+                    {block:Caption}
+                      {Caption}
+                    {/block:Caption}
+                    
+                    {block:Date}
+                      Posted {TimeAgo} with {NoteCountWithLabel}<br/>
+                    {/block:Date}
+                    
+                    {block:HasTags}
+                      Tags:
+                      {block:Tags}
+                        <a href="{TagURL}">
+                          <span class="text-muted">
+                            {Tag}
+                          </span>
+                        </a>
+                      {/block:Tags}
+                    {/block:HasTags}
+                    
+                    {block:PostNotes}
                       <div>
-                        {block:PostNotes}{PostNotes}{/block:PostNotes}
-                      </div>        
-                </div>
+                        View Notes
+                      </div>
+                    {/block:PostNotes}
+                    
+                    <div>
+                      {block:PostNotes}{PostNotes}{/block:PostNotes}
+                    </div>        
+                  </div>
 
                 </div>
               </div>
@@ -222,9 +222,10 @@
            
       </div>
 
-      <div id="footer" class="row">
+      <div id="footer" class="row" style="margin-top:100px;">
         <p class="text-center">
-          Theme by <a href="http://about.me/fntsrlike">fntsrlike</a> 
+          Theme by <a href="http://about.me/fntsrlike">fntsrlike</a>. <br/>
+          <a class="text-muted" href="https://github.com/fntsrlike/tumblr_theme">Theme Source on Github</a>
         </p>
       </div>
     </div>
