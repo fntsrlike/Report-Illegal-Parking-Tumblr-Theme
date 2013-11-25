@@ -76,7 +76,7 @@
     </div>
 
     <div class="container">
-
+    {block:IndexPage}
       <div id="header" class="row alert alert-info">
             
         {block:Description}
@@ -85,7 +85,7 @@
         </p>
         {/block:Description}
       </div>
-
+    {/block:IndexPage}
       <div id="content" class="row">
 
         {block:Posts}
@@ -133,7 +133,7 @@
                     <!-- Time-->
                     <section class="text-right" style="height: 20px;">
                       <span class="text-muted">
-                        {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24Hour}:{Minutes}
+                        {TimeAgo}
                       <span>                      
                     </section>
 
@@ -170,56 +170,58 @@
           
             {block:Photo}
             <!-- 照片頁面 >>> -->
-              <div class="row">
+              <div class="row alert alert-danger">
                 <div class="col-md-6">
-                  <header>
-                      <a href="{Permalink}"><img src="{PhotoURL-500}" /></a>
+                  <header style="min-width:500px;">
+                      <a href="{PhotoURL-500}"><img src="{PhotoURL-500}" /></a>
                   </header>
                 </div>
-                 <div class="col-md-6">
+                <div class="col-md-6 col-lg-5">
+                  <div>
+                    <h4>相關敘述</h4>
                     {block:Caption}
                       {Caption}
                     {/block:Caption}
-                    
-                    {block:Date}
-                      Posted {TimeAgo} with {NoteCountWithLabel}<br/>
-                    {/block:Date}
-                    
+                  </div>
+                  <div style="margin-top:30px;">
                     {block:HasTags}
-                      Tags:
                       {block:Tags}
                         <a href="{TagURL}">
-                          <span class="text-muted">
+                          <span class="label label-danger" style="margin-right:5px;">
                             {Tag}
                           </span>
                         </a>
                       {/block:Tags}
                     {/block:HasTags}
-                    
-                    {block:PostNotes}
-                      <div>
-                        View Notes
-                      </div>
-                    {/block:PostNotes}
-                    
-                    <div>
-                      {block:PostNotes}{PostNotes}{/block:PostNotes}
-                    </div>        
                   </div>
+                  <p class="text-right" style="margin-top:30px;">
+                    {block:Date}
+                      Post Time: {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}
+                    {/block:Date}
+                  </p>        
+                </div>
 
+              </div>
+              {block:PostNotes}
+              <div class="row alert alert-success" style="margin-top:20px;">
+                <div class="col-md-12">
+                  <div>
+                    View Notes
+                  </div>
+                  <div>
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                  </div> 
                 </div>
               </div>
+              {/block:PostNotes}                     
+            </div>
             
             <!-- 照片頁面 >>> -->
             {/block:Photo}
-          
-
-            
+              
           {/block:PermalinkPage}
         {/block:Posts}
 
-        
-           
       </div>
 
       <div id="footer" class="row" style="margin-top:100px;">
